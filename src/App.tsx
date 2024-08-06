@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { CommunalTables } from './features/tables/CommunalTables';
+import { Pagination } from './components/ui/pagination/pagination';
+import { observer } from 'mobx-react-lite';
+import { storeInstance } from './models/store';
+import { useEffect, useState } from 'react';
+import { St } from './components/ui/table/tableStyledComponennts';
 
-function App() {
+export const App = observer(() => {
+  const [currentPage, setCurrentPage] = useState(1);
+
+  useEffect(() => {
+    storeInstance.fetchMeters(20 * currentPage);
+  }, [currentPage]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <St.TableWrapper>
+        <CommunalTables />
+        <Pagination
+          currentPage={currentPage}
+          pageSize={20}
+          totalCount={storeInstance.meters.count}
+          onPageChange={setCurrentPage}
+          isLoading={storeInstance.isLoading}
+        />
+      </St.TableWrapper>
+    </>
   );
-}
-
-export default App;
+});
