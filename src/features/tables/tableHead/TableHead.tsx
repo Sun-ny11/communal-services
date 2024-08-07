@@ -1,5 +1,7 @@
+import { useEffect, useRef } from 'react';
 import { Table } from '../../../components/ui/table/table';
 import { tableHeaderName } from '../tableHeaderName';
+import { storeInstance } from '../../../models/store';
 
 // Не смог реализовать скролл внутри body таблицы
 
@@ -27,3 +29,19 @@ export const TableHead = () => {
     </Table.Head>
   );
 };
+// <>
+//   <Table.Head>
+//     <Table.Row className="noHover">
+//       {tableHeaderName.map((el, index) => (
+//         <Table.HeaderCell
+//           ref={(ref) => {
+//             if (ref) a.push(ref?.getBoundingClientRect().width);
+//           }}
+//           key={el.key}
+//         >
+//           {el.title}
+//         </Table.HeaderCell>
+//       ))}
+//     </Table.Row>
+//   </Table.Head>
+// </>

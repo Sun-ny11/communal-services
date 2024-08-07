@@ -20,7 +20,7 @@ export const App = observer(() => {
         <Pagination
           currentPage={currentPage}
           pageSize={20}
-          totalCount={storeInstance.meters.count}
+          totalCount={storeInstance.meters.count || 200}
           onPageChange={setCurrentPage}
           isLoading={storeInstance.isLoading}
         />
