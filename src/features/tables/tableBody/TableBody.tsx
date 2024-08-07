@@ -45,7 +45,7 @@ export const TableBody = ({
             })}
           </Table.Cell>
           <Table.Cell style={{ width: '9.82%' }}>{el.description}</Table.Cell>
-          <Table.Cell style={{ width: '4.26%' }}>
+          <Table.Cell style={{ width: '4% ' }}>
             <St.DeleteCellButton
               className={isLoading ? 'disabled' : ''}
               disabled={isLoading}

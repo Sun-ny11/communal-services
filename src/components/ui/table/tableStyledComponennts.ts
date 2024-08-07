@@ -2,18 +2,19 @@ import { styled } from 'styled-components';
 
 const ScrollTableWrapper = styled.div`
   width: 100%;
-  height: 600px;
+  height: 80vh;
   overflow-x: auto;
   &::-webkit-scrollbar {
     width: 4px;
   }
 
   &::-webkit-scrollbar-track {
-    background-color: #f8f9fa;
+    background-color: #f0f3f7;
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: #5e6674;
+    background-color: #697180;
+
     border-radius: 4px;
   }
 `;

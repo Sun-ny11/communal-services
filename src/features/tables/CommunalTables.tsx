@@ -4,6 +4,7 @@ import { storeInstance } from '../../models/store';
 import { TableHead } from './tableHead/TableHead';
 import { TableBody } from './tableBody/TableBody';
 import { St } from '../../components/ui/table/tableStyledComponennts';
+import { faceAddress, faceApi } from './tableHeaderName';
 
 export const CommunalTables = observer(() => {
   const deleteMeterHandler = (id: string) => {
