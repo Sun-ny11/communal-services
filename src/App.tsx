@@ -10,7 +10,7 @@ export const App = observer(() => {
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
-    storeInstance.fetchMeters(20 * currentPage);
+    storeInstance.fetchMeters(20 * (currentPage - 1));
   }, [currentPage]);
 
   return (
@@ -20,7 +20,7 @@ export const App = observer(() => {
         <Pagination
           currentPage={currentPage}
           pageSize={20}
-          totalCount={storeInstance.meters.count || 200}
+          totalCount={storeInstance.meters.count}
           onPageChange={setCurrentPage}
           isLoading={storeInstance.isLoading}
         />

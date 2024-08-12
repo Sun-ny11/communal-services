@@ -35,7 +35,7 @@ export const tableHeaderName = [
   },
 ];
 
-export const faceApi: any = {
+export const fakeApi: any = {
   count: 1283,
   next: 'http://showroom.eis24.me/api/v4/test/meters/?limit=20&offset=40',
   previous: 'http://showroom.eis24.me/api/v4/test/meters/?limit=20',
@@ -343,7 +343,7 @@ export const faceApi: any = {
   ],
 };
 
-export const faceAddress: any = [
+export const fakeAddress: any = [
   {
     id: '526237d1e0e34c524382c07c',
     number: 5,
