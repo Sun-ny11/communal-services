@@ -11,7 +11,6 @@ export const DOTS = '...';
 
 const range = (start: number, end: number) => {
   const length = end - start + 1;
-
   return Array.from({ length }, (_, idx) => idx + start);
 };
 
@@ -31,26 +30,28 @@ export const usePagination = ({
     }
 
     const leftSiblingIndex = Math.max(currentPage - siblingCount, 1);
+
     const rightSiblingIndex = Math.min(
       currentPage + siblingCount,
       totalPageCount
     );
 
-    const shouldShowLeftDots = leftSiblingIndex > 2;
-    const shouldShowRightDots = rightSiblingIndex < totalPageCount - 2;
+    const shouldShowLeftDots = leftSiblingIndex > 1;
+    const shouldShowRightDots = rightSiblingIndex < totalPageCount;
 
     const firstPageIndex = 1;
     const lastPageIndex = totalPageCount;
 
     if (!shouldShowLeftDots && shouldShowRightDots) {
-      const leftItemCount = 3 + 2 * siblingCount;
+      const leftItemCount = 3 * siblingCount;
       const leftRange = range(1, leftItemCount);
+      const rightRange = range(totalPageCount - 2, totalPageCount);
 
-      return [...leftRange, DOTS, totalPageCount];
+      return [...leftRange, DOTS, ...rightRange];
     }
 
     if (shouldShowLeftDots && !shouldShowRightDots) {
-      const rightItemCount = 3 + 2 * siblingCount;
+      const rightItemCount = 3 * siblingCount;
       const rightRange = range(
         totalPageCount - rightItemCount + 1,
         totalPageCount

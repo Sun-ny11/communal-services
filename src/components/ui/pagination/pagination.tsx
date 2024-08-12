@@ -25,7 +25,6 @@ export const Pagination = observer(
       siblingCount,
       totalCount,
     });
-
     if (currentPage === 0 || paginationRange!.length < 2) {
       return null;
     }
